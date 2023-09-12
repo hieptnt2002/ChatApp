@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.realtime.message.model.User" />
+
+        <variable
+            name="ProfileViewModel"
+            type="com.realtime.message.viewmodel.ProfileViewModel" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/bg_bar"
+                app:elevation="0.5dp">
+
+                <Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:titleTextColor="@color/title"
+                    android:navigationIcon="@drawable/arrow"
+                    android:title="Profile"
+                    android:titleTextAppearance="@style/textTitleAppBar" />
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profileCircleImageView"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:onClick="@{()->ProfileViewModel.onClickOpenImage()}"
+                        app:civ_border_color="#EADDDD"
+                        app:civ_border_width="1dp"
+                        app:imgUrl="@{user.avatar}"
+                        app:urlError="@{@drawable/noimg}" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_below="@id/profileCircleImageView"
+                        android:layout_marginLeft="-25dp"
+                        android:layout_marginTop="-25dp"
+                        android:layout_toEndOf="@id/profileCircleImageView"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/add_image" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/usernameTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:drawableRight="@drawable/edit_text"
+                        android:drawableTint="@color/gray"
+                        android:hint="Nhập họ tên"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:text="@={user.name}"
+
+                        android:textColor="@color/text"
+                        android:textSize="16sp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/emailTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_toStartOf="@id/TextView_change"
+                            android:enabled="false"
+                            android:focusable="false"
+                            android:hint="Email"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:text="@{user.email}"
+                            android:textColor="@color/text"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/TextView_change"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_alignParentEnd="true"
+                            android:gravity="bottom"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:text="Thay đổi"
+                            android:textColor="@color/blue"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonSave"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/button"
+                android:text="Lưu"
+                android:onClick="@{()->ProfileViewModel.onClickSaveProfile()}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:cornerRadius="10dp" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

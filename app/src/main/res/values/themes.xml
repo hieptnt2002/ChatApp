@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ChatApp" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">#212121</item>
+        <item name="colorPrimaryVariant">#000000</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#fff</item>
+        <item name="colorSecondaryVariant">#fff</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorError">#F44336</item>
+        <item name="colorOnError">#FFFFFF</item>
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">#212121</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorOnBackground">#212121</item>
+        <item name="colorPrimaryDark">#212121</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+
+
+
+
+    </style>
+
+
+
+
+
+    <style name="Theme.ChatApp" parent="Base.Theme.ChatApp" />
+
+
+
+</resources>

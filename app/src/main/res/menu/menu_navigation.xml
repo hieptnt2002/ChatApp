@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_msg"
+        android:icon="@drawable/menu_msg"
+        android:title="Đoạn chat" />
+    <item
+        android:id="@+id/menu_gr"
+        android:icon="@drawable/menu_gr"
+        android:title="Danh bạ" />
+    <item
+        android:id="@+id/menu_dir"
+        android:icon="@drawable/menu_diary"
+        android:title="Nhật ký" />
+    <item
+        android:id="@+id/menu_usr"
+        android:icon="@drawable/menu_usr"
+        android:title="Cá nhân" />
+</menu>

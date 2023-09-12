@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="userMsg"
+            type="com.realtime.message.viewmodel.UserMsgAdpViewModel" />
+
+        <variable
+            name="User"
+            type="com.realtime.message.model.User" />
+    </data>
+
+    <com.chauthai.swipereveallayout.SwipeRevealLayout
+        android:id="@+id/swipe.reveal.layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        app:mode="same_level"
+        app:dragEdge="right">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/button.delete.chat"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/delete"
+                android:layout_gravity="center_vertical"
+                app:tint="@color/delete"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/noimg"
+                    app:imgUrl="@{User.avatar}"
+                    app:urlError="@{@drawable/noimg}" />
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_below="@id/imageView2"
+                    android:layout_marginLeft="-15dp"
+                    android:layout_marginTop="-15dp"
+                    android:layout_toEndOf="@id/imageView2"
+                    android:background="@drawable/bg_btn_cir"
+                    android:backgroundTint="@{User.status.equals(`online`) ? @color/blue : @color/gray}" />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:id="@+id/textView_usr"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:maxLines="1"
+                        android:text="@{User.name}"
+                        android:textColor="@color/text"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/textView_unread"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_unread"
+                            android:text="@{userMsg.unread}"
+                            android:paddingRight="9dp"
+                            android:paddingLeft="9dp"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:visibility="@{userMsg.isSeen? View.GONE : View.VISIBLE}" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:id="@+id/textView_msg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@{userMsg.messageLast}"
+                        android:textColor="@{userMsg.isSeen ? @color/gray : @color/black}"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textView_time"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="10dp"
+                        android:text="@{userMsg.timeLast}"
+                        android:textAlignment="center"
+                        android:textColor="@color/gray"
+                        android:textSize="16sp"
+                        android:visibility="@{userMsg.timeLast.length() > 0 ? View.VISIBLE : View.GONE}" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.chauthai.swipereveallayout.SwipeRevealLayout>
+</layout>

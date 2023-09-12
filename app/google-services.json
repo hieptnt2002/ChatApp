@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "514970166457",
+    "project_id": "chatapp-a8866",
+    "storage_bucket": "chatapp-a8866.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514970166457:android:c7f0e9741746252526e768",
+        "android_client_info": {
+          "package_name": "com.realtime.message"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "514970166457-os2dhifqrtk95vsrhgahd5horqt007ek.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.realtime.message",
+            "certificate_hash": "e81cb13129b832b9311aa4ee6abbcd005739b1e7"
+          }
+        },
+        {
+          "client_id": "514970166457-pomabol19ds6ml2kt0utmv12chh0gnfv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQIHayT9jztryCT_JZ64usBGoJrnsqXno"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "514970166457-pomabol19ds6ml2kt0utmv12chh0gnfv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

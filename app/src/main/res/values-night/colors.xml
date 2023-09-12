@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#1575C4</color>
+    <color name="gray">#AEADAD</color>
+    <color name="background">#202020</color>
+    <color name="bg_bar">#202020</color>
+    <color name="bg_profile">#AEADAD</color>
+    <color name="title">#fff</color>
+    <color name="text">#fff</color>
+    <color name="text_msg">#fff</color>
+    <color name="bg_text_msg">#202020</color>
+
+    <color name="icon_find">#AEADAD</color>
+    <color name="button">#AEADAD</color>
+
+    <color name="bg_search">#AEADAD</color>
+
+    <color name="bg_edt_msg">#3E3E3E</color>
+    <color name="delete">#fff</color>
+</resources>

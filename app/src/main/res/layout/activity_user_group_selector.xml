@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+        <variable
+            name="imageBitmap"
+            type="android.graphics.Bitmap" />
+        <variable
+            name="groupModel"
+            type="com.realtime.message.viewmodel.UserGroupSelectorViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:elevation="0.5dp"
+                android:background="@color/bg_bar">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:titleTextColor="@color/title"
+                        android:navigationIcon="@drawable/arrow"
+                        android:title="Tạo nhóm mới"
+                        android:titleTextAppearance="@style/textTitleAppBar" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/avatar_group"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    app:bitmap="@{groupModel.imgBitmap}"
+                    android:onClick="@{()->groupModel.onListenerShowPictureDialog()}"
+                    />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:backgroundTint="@color/gray"
+                    android:gravity="center_vertical"
+                    android:hint="Đặt tên nhóm"
+                    android:text="@={groupModel.strNameGroup}"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingStart="5dp"
+                    android:singleLine="true"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_search"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_edt_search"
+                android:backgroundTint="@color/selector_search"
+                android:drawableStart="@drawable/loupe"
+                android:drawablePadding="10dp"
+                android:elevation="1dp"
+                android:gravity="center_vertical"
+                android:hint="Tìm kiếm người, nhóm nhắn tin..."
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingStart="15dp"
+                android:singleLine="true"
+                android:textSize="15sp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center_vertical"
+                    android:text="Gợi ý"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="@{groupModel.strSearch.length() > 0 ? View.GONE : View.VISIBLE}" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_user_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_user_selected"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:elevation="10dp"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="5dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_selected_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@+id/btn_submit" />
+
+                <Button
+                    android:id="@+id/btn_submit"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:onClick="@{()->groupModel.onListenerNextStep()}"
+                    android:background="@drawable/arrow_next" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

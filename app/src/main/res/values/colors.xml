@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#1575C4</color>
+    <color name="gray">#AEADAD</color>
+    <color name="background">#FFFFFFFF</color>
+    <color name="bg_profile">#FFFFFFFF</color>
+    <color name="bg_bar">#FFFFFFFF</color>
+
+    <color name="title">#333</color>
+    <color name="text">#333</color>
+    <color name="text_msg">#FF000000</color>
+    <color name="bg_text_msg">#E8E6E6</color>
+    <color name="bg_edt_msg">#F6F5F5</color>
+    <color name="icon_find">#333</color>
+    <color name="button">#1575C4</color>
+
+    <color name="bg_search">#F4F2F2</color>
+    <color name="delete">#F61010</color>
+</resources>

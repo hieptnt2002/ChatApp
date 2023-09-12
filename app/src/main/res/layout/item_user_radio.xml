@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="userRadio"
+            type="com.realtime.message.viewmodel.UserRadioViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/layout_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="5dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/noimg"
+                    app:imgUrl="@{userRadio.user.avatar}"
+                    app:urlError="@{@drawable/noimg}" />
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_below="@id/imageView2"
+                    android:layout_marginLeft="-15dp"
+                    android:layout_marginTop="-15dp"
+                    android:layout_toEndOf="@id/imageView2"
+                    android:background="@drawable/bg_btn_cir"
+                    android:backgroundTint="@{userRadio.user.status.equals(`online`) ? @color/blue : @color/gray}" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/textView_usr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@id/btn_radio_user"
+                    android:maxLines="1"
+                    android:text="@{userRadio.user.name}"
+                    android:textColor="@color/text"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/btn_radio_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:button="@drawable/checkbox_checked"
+                   android:checked="@{userRadio.checked}"
+                    />
+
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

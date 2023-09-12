@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="searchViewModel"
+            type="com.realtime.message.viewmodel.SearchViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragment.main.MsgFragment"
+        android:background="@color/background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:elevation="0.5dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/bg_bar">
+
+                    <Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:navigationIcon="@drawable/arrow"
+                        android:title="Tin nhắn mới"
+                        android:titleTextColor="@color/title"
+                        android:titleTextAppearance="@style/textTitleAppBar" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/toolbar">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:gravity="center_vertical"
+                            android:background="@android:color/transparent"
+                            android:imeOptions="actionSearch"
+                            android:inputType="text"
+                            android:textColor="@color/text_msg"
+                            android:maxLines="1"
+                            android:paddingStart="10dp"
+                            android:singleLine="true"
+                            android:text="Đến :"
+                            android:textSize="15sp" />
+                        <EditText
+                            android:id="@+id/autoCompleteText_search"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:layout_gravity="center"
+                            android:background="@android:color/transparent"
+                            android:hint="Tìm kiếm người, nhóm nhắn tin..."
+                            android:imeOptions="actionSearch"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@color/text"
+                            android:paddingStart="15dp"
+                            android:singleLine="true"
+                            android:text="@={searchViewModel.strSearch}"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:background="@android:color/transparent"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:maxLines="1"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/group"
+                android:drawableTint="@color/text"
+                android:paddingStart="10dp"
+                android:drawablePadding="10dp"
+                android:textColor="@color/text"
+                android:singleLine="true"
+                android:text="Nhóm chat"
+                android:textSize="15sp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="Gợi ý"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="@{searchViewModel.strSearch.length() > 0 ? View.GONE : View.VISIBLE}" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_user_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</layout>
